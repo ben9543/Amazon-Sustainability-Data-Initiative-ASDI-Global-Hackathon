@@ -1,0 +1,37 @@
+@startuml diagram
+
+node EventBridge{
+    [Cron]
+}
+
+node ECS{
+    node "Python Docker Container"{
+        [Many Scripts ...]
+    }
+}
+
+cloud "AWS S3 Data Set" as S3{
+    [NASA POWER]
+}
+
+node Frontend{
+    [React]
+    [Google Heatmap API]
+}
+
+node S3 as DB{
+    [Analyzed CSV 1]
+    [Analyzed CSV 2]
+    [Analyzed CSV 3]
+    [Analyzed CSV 4 ...]
+}
+
+actor Client
+
+EventBridge-down->ECS: Triggers batch job every 1 hour
+ECS-right->S3: Fetch hourly updated data from S3
+ECS-down->DB: Store analyzed data
+Frontend-right->DB: Download the lateset csv file
+Frontend-up->Client: Display data
+
+@enduml
