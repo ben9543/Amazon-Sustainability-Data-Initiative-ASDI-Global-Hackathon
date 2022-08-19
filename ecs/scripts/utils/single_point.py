@@ -62,6 +62,5 @@ datavar = "ALLSKY_NKT"
 # Main loop
 for month in range(1, 13):
     res = getSinglePointData(ds=ds, datavar=datavar, year=year, month=month, lat = lat, lon = lon)
-    
     print(f"{year}/{month}/31: {res}")
     
