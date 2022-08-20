@@ -34,14 +34,18 @@ class S3DataSetClient:
         except:
             print("Could not download the file")
 
-    def downloadFiles(self, dest="tmp/"):
+    def downloadFiles(self, dest="tmp/", test=False):
         """
         objects: list of strings contain object key
         dest: folder path that files are going to be stored (should be ending with '/')
         """
         
+        
         objects = self.get_all_s3_filepaths()
 
+        if test:
+            objects = objects[:10]
+        
         if not os.path.exists(dest):
             os.mkdir(dest)
 
