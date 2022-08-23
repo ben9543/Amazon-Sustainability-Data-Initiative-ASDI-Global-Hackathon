@@ -18,3 +18,6 @@ def upload_file(file_name, object_name):
         logging.error(e)
         return False
     return True
+
+def upload_json_files(folder_path):
+    pass

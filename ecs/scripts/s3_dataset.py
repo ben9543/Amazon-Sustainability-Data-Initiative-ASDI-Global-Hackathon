@@ -40,7 +40,6 @@ class S3DataSetClient:
         dest: folder path that files are going to be stored (should be ending with '/')
         """
         
-        
         objects = self.get_all_s3_filepaths()
 
         if test:
