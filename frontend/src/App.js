@@ -1,8 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import GoogleMapReact from 'google-map-react';
-import myData from "./data/result.json";
-
-import { JSONToHeatMapDataSet } from "./utils";
 
 function App() {
   const YOUR_API_KEY = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
@@ -17,11 +14,11 @@ function App() {
   const [data, setData] = useState({});
 
   useEffect(()=>{
-    const res = JSONToHeatMapDataSet(myData, "CO");
+    /*const res = combineAllJSON(myData);
     const d = {
       positions:res
     };
-    setData(d);
+    setData(d);*/
   },[]);
 
   return (
@@ -32,8 +29,7 @@ function App() {
       defaultCenter={defaultProps.center}          
       defaultZoom={defaultProps.zoom}          
       heatmapLibrary={true}          
-      heatmap={data}          
-      // onClick={this.onMapClick.bind(this)}        
+      heatmap={data}     
       ></GoogleMapReact>
     </div>
   );
