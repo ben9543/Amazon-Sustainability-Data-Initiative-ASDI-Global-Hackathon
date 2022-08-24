@@ -1,7 +1,6 @@
 import json
 import os
 import glob
-import utils.get_dest as get_dest
 from netCDF4 import Dataset
 
 # files => list of strings(filepaths)
